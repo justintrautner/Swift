@@ -15,8 +15,7 @@ func swapRandom(array: [Int])->[Int]{
     }
     return array
 }
-func removeValue(array: [Int], value: Int){
-    var array=array
+func removeValue(array: inout [Int], value: Int){
     for i in 0..<array.count{
         if array[i]==value {
             print("Removed value \(value) found at index \(i)")
@@ -24,9 +23,11 @@ func removeValue(array: [Int], value: Int){
             return
         }
     }
+    print("Value not found")
 }
 print(swapRandom(array: myList))
-removeValue(array: myList, value: 1)
+removeValue(array: &myList, value: 1)
+print(myList)
 
 
 
